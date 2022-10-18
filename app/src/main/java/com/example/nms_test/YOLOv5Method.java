@@ -15,10 +15,10 @@ public class YOLOv5Method extends ContextWrapper{
     }
 
     public static native int nms_test(
-            int prediction,
-            int confThresh,
+            float[] prediction,
+            float confThresh,
             float iouThresh,
-            String classes,
+            int[] classes,
             int agnostic,
             int multiLabels,
             int labels,

@@ -67,7 +67,8 @@ static void nms_sorted_bboxes(const std::vector<Object>& faceobjects, std::vecto
     }
 }
 
-JNIEXPORT jobjectArray JNICALL Java_com_example_nms_Test(JNIEnv* env, jobject thiz, jobject bitmap, jboolean use_gpu)
+JNIEXPORT jobjectArray JNICALL Java_com_example_nms_Test(JNIEnv* env, jobject thiz, jfloatarray preds, float conf_thresh, float iou_thresh
+                                                         jintarray classes, int agnostic, int multilabels, int labels, int maxDet, int nm)
 {
 
 }
