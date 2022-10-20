@@ -67,9 +67,40 @@ static void nms_sorted_bboxes(const std::vector<Object>& faceobjects, std::vecto
     }
 }
 
-JNIEXPORT jobjectArray JNICALL Java_com_example_nms_Test(JNIEnv* env, jobject thiz, jfloatarray preds, float conf_thresh, float iou_thresh
-                                                         jintarray classes, int agnostic, int multilabels, int labels, int maxDet, int nm)
+JNIEXPORT int JNICALL Java_com_example_nms_Test(JNIEnv* env, jobject thiz, jfloatArray preds, float conf_thresh, float iou_thresh,
+                                                         jintArray classes, int agnostic, int multilabels, int labels, int maxDet, int nm)
 {
+    float* preds_ptr = (float*) env->GetFloatArrayElements(preds, 0);
+    std::vector<Object> objects;
+    std::vector<Object> proposals;
+    std::vector<int> picked;
+    nms_sorted_bboxes(proposals, picked, conf_thresh);
 
+    int count = picked.size();
+/*
+    objects.resize(count);
+    for (int i = 0; i < count; i++)
+    {
+        objects[i] = proposals[picked[i]];
+
+        // adjust offset to original unpadded
+        float x0 = (objects[i].x - (wpad / 2)) / scale;
+        float y0 = (objects[i].y - (hpad / 2)) / scale;
+        float x1 = (objects[i].x + objects[i].w - (wpad / 2)) / scale;
+        float y1 = (objects[i].y + objects[i].h - (hpad / 2)) / scale;
+
+        // clip
+        x0 = std::max(std::min(x0, (float)(width - 1)), 0.f);
+        y0 = std::max(std::min(y0, (float)(height - 1)), 0.f);
+        x1 = std::max(std::min(x1, (float)(width - 1)), 0.f);
+        y1 = std::max(std::min(y1, (float)(height - 1)), 0.f);
+
+        objects[i].x = x0;
+        objects[i].y = y0;
+        objects[i].w = x1 - x0;
+        objects[i].h = y1 - y0;
+    }
+*/
+    return 0;
 }
 
