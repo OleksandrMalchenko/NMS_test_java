@@ -1,6 +1,5 @@
 package com.example.nms_test;
 
-import android.graphics.Bitmap;
 import android.content.Context;
 import android.content.ContextWrapper;
 
@@ -10,7 +9,7 @@ public class YOLOv5Method extends ContextWrapper{
         super(context);
     }
 
-    public static native int nms_test(
+    public static native int nms(
             float[] prediction,
             float confThresh,
             float iouThresh,

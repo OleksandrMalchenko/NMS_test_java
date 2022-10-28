@@ -22,7 +22,6 @@ android {
                 arguments "-DANDROID_TOOLCHAIN=clang"
             }
         }
-
     }
 
     externalNativeBuild {
@@ -41,6 +40,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+//    android.ndkVersion rootProject.ext.ndkVersion -> 22.0.7026061
+
 }
 
 dependencies {

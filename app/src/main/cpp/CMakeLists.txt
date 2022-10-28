@@ -8,3 +8,5 @@ file(GLOB srcs
     )
 
 add_library(yolo-jni SHARED ${srcs})
+
+target_link_libraries(yolo-jni log jnigraphics android)
